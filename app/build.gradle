@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'findbugs'
 
 android {
     compileSdkVersion 27
@@ -26,3 +27,24 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+task findbugs(type: FindBugs) {
+    ignoreFailures = true
+    effort = "max"
+    reportLevel = "low"
+    excludeFilter = new File("$project.rootDir/findbugs-android-exclude")
+    jvmArgs = ['-Duser.language=en']
+    classes = files("build/intermediates/classes/")
+    source 'src/main'
+    include '**/*.java'
+    reports {
+        xml.enabled = true
+        xml.withMessages = true
+        html.enabled = !xml.isEnabled()
+        xml.destination "$project.buildDir/reports/findbugs_report.xml"
+        html.destination "$project.buildDir/reports/findbugs_report.html"
+    }
+    classpath = files()
+}
+
+check.dependsOn 'findbugs'
