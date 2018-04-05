@@ -2,11 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'findbugs'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
     defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         applicationId "example.watarusuzuki.android_example_using_danger"
-        minSdkVersion 14
-        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,24 +30,3 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(':library')
 }
-
-task findbugs(type: FindBugs) {
-    ignoreFailures = true
-    effort = "max"
-    reportLevel = "low"
-    excludeFilter = new File("$project.rootDir/findbugs-android-exclude")
-    jvmArgs = ['-Duser.language=en']
-    classes = files("build/intermediates/classes/")
-    source 'src/main'
-    include '**/*.java'
-    reports {
-        xml.enabled = true
-        xml.withMessages = true
-        html.enabled = !xml.isEnabled()
-        xml.destination "$project.buildDir/reports/findbugs_report.xml"
-        html.destination "$project.buildDir/reports/findbugs_report.html"
-    }
-    classpath = files()
-}
-
-check.dependsOn 'findbugs'
