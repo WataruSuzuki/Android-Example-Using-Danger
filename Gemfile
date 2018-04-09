@@ -5,5 +5,5 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "danger"
-gem "danger-findbugs"
-gem "danger-android_lint"
+gem 'danger-findbugs', git: 'https://github.com/WataruSuzuki/danger-findbugs.git'
+gem 'danger-android_lint', git: 'https://github.com/WataruSuzuki/danger-android_lint.git'
