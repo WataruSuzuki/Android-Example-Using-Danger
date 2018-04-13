@@ -1,2 +1,4 @@
-./gradlew build check -PdisablePreDex --stacktrace
+cd AndroidStudioProject
+./gradlew build check lint -PdisablePreDex --stacktrace
+cd -
 bundle exec danger
