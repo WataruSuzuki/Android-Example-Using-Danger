@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/WataruSuzuki/danger-android_lint.git
+  revision: ddf2455cfa693fc5cd4599dc64764a378750d7be
+  specs:
+    danger-android_lint (0.0.6)
+      danger-plugin-api (~> 1.0)
+      oga
+
+GIT
+  remote: https://github.com/WataruSuzuki/danger-findbugs.git
+  revision: 2b4e915d3f39fce494012a438414c914e71593f2
+  specs:
+    danger-findbugs (0.0.5)
+      danger-plugin-api (~> 1.0)
+      oga (~> 2.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -25,30 +41,24 @@ GEM
       no_proxy_fix
       octokit (~> 4.7)
       terminal-table (~> 1)
-    danger-android_lint (0.0.6)
-      danger-plugin-api (~> 1.0)
-      oga
-    danger-findbugs (0.0.5)
-      danger-plugin-api (~> 1.0)
-      oga (~> 2.10)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     faraday-http-cache (1.3.1)
       faraday (~> 0.8)
-    git (1.4.0)
+    git (1.5.0)
     kramdown (1.17.0)
     multipart-post (2.0.0)
     nap (1.1.0)
     no_proxy_fix (0.1.2)
-    octokit (4.9.0)
+    octokit (4.10.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     oga (2.15)
       ast
       ruby-ll (~> 2.1)
     open4 (1.3.4)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -64,8 +74,8 @@ PLATFORMS
 
 DEPENDENCIES
   danger
-  danger-android_lint
-  danger-findbugs
+  danger-android_lint!
+  danger-findbugs!
 
 BUNDLED WITH
    1.16.1
